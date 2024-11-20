@@ -58,7 +58,7 @@ const ArbolContainer = () => {
             </button>
             <img
                 className="suelo"
-                src="/public/source/suelo.png"
+                src="./source/suelo.png"
                 alt="suelo"
                 style={{ bottom: getSueloPosition(nivel), position: 'relative' }}
             />
