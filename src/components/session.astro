@@ -1,0 +1,49 @@
+---
+import {SignIn , SignOut } from "auth-astro/components";
+
+import { getSession } from 'auth-astro/server';
+
+const session = await getSession(Astro.request)
+---
+<section>
+        {
+			session ? (
+				<h2>Bienvenido {session.user?.name}</h2>
+				<img src={session.user?.image} alt={session.user?.id}/>
+				<SignOut>Cerrar sesion</SignOut>
+			) : (
+				<SignIn provider="google"> Iniciar sesion con google </SignIn>
+			)
+		}	
+</section>
+<style>
+    section {
+        h2{
+            background-image: linear-gradient(120deg, #7df665 20%, #fdeb85 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1rem;
+            text-shadow: #2bff0065 0px 0px 22px;
+        }
+        img{
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            left: 0%;
+            top: 10px;
+        }
+        button{
+            background-color: #fda385;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+            position: fixed;
+            left: 60.5px;
+            top: 12.5px;
+        }
+    }
+</style>
