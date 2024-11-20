@@ -3,12 +3,14 @@ import Layout from '../layout/layout.astro';
 import Header from '../components/Header.astro';
 import Session from '../components/session.astro';
 import Menu from '../components/Menu.astro';
+import Arbol from '../components/Arbol.jsx';
 ---
 <Layout>
 	<main>
 		<Header/>
 		<Session/>
 		<Menu/>
+		<Arbol client:idle/>
 	</main>
 </Layout>
 <style>
